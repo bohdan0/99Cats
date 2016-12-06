@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :cats, only: [:index, :show]
+  resources :cats, only: [:index, :show, :new, :create, :edit, :update]
 
 
 
