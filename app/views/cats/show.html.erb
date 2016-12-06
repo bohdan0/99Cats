@@ -12,14 +12,15 @@
     <td><%= @cat.color %></td>
     <td><%= @cat.sex %></td>
   </tr>
-  <tr>
-    <td>Description</td>
-  </tr>
-  <tr>
-    <td>
+</table>
+  <p>Description:</p>
+  <text>
     <%= @cat.description %>
-    </td>
+  </text>
+
+<table>
+  <tr>
+    <td><%= link_to 'Back to cats', cats_url %></td>
+    <td><%= link_to 'Edit this cat', edit_cat_url(@cat) %></td>
   </tr>
 </table>
-
-<%= link_to 'Back to cats', cats_url %>

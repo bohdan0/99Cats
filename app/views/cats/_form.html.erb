@@ -1,0 +1,48 @@
+<h1><%= action == :edit ? "Edit" : "Add" %> a cat!</h1>
+
+<form action="<%= action == :edit ? cat_url(cat) : cats_url %>" method="post">
+<% if action == :edit %>
+  <input type="hidden" name="_method" value="patch">
+<% end %>
+
+  <table>
+    <tr>
+      <td><label for="name">Name</label></td>
+      <td><input id="name" type="text" name="cat[name]" value="<%= action == :edit ? cat.name : "" %>"></td>
+    </tr>
+    <tr>
+      <td><label for="birth">Birth Date</label></td>
+      <td><input id="birth" type="date" name="cat[birth_date]" value="<%= action == :edit ? cat.birth_date : "" %>"></td>
+    </tr>
+    <tr>
+      <td><label for="color">Color</label></td>
+      <td>
+        <select id="color" name="cat[color]">
+          <option disabled <%= action == :edit ? "" : "selected" %> >--Please choose a color--</option>
+          <option value="black" <%= (cat.color == 'black' ? "selected" : "") if action == :edit %> >Black</option>
+          <option value="white" <%= (cat.color == 'white' ? "selected" : "") if action == :edit %> >White</option>
+          <option value="red" <%= (cat.color == 'red' ? "selected" : "") if action == :edit %> >Red</option>
+          <option value="green" <%= (cat.color == 'green' ? "selected" : "") if action == :edit %> >Green</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="sex">Sex</label></td>
+      <td>
+        <input id="sex" type="radio" name="cat[sex]" value="M" <%= (cat.sex == 'M' ? "checked" : "") if action == :edit %>>M<br>
+        <input id="sex" type="radio" name="cat[sex]" value="F" <%= (cat.sex == 'F' ? "checked" : "") if action == :edit %>>F
+      </td>
+    </tr>
+    <tr>
+      <td><label for="description">Description</label></td>
+      <td>
+        <textarea id="description" name="cat[description]" rows="8" cols="30">
+          <%= cat.description if action == :edit %>
+        </textarea>
+      </td>
+    </tr>
+  </table>
+
+  <input type="submit" value="Save changes">
+
+</form>

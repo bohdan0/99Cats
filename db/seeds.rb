@@ -12,3 +12,6 @@ c2 = Cat.create(birth_date: "2015/01/20", color: 'green', name: 'bob',
   sex: 'M', description: 'green cat')
 c3 = Cat.create(birth_date: "2010/11/20", color: 'white', name: 'sally',
   sex: 'F', description: 'pretty cat')
+
+crr1 = CatRentalRequest.create(cat_id: 1, start_date: "2016/12/1", end_date: "2016/12/31")
+crr2 = CatRentalRequest.create(cat_id: 2, start_date: "2016/12/1", end_date: "2016/12/31", status: "APPROVED")
