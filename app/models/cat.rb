@@ -3,6 +3,6 @@ class Cat < ActiveRecord::Base
   validates :color, inclusion: { in: %w(black white red green),
     message: "%{value} is not a valid color" }
   validates :sex, inclusion: { in: %w(M F),
-    message: "%{value} is not a valid sex"}
+    message: "%{value} is not a valid sex" }
 
 end
