@@ -7,6 +7,10 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find_by(id: params[:id])
+    @cat_rental_requests = CatRentalRequest
+      .where(cat_id: @cat.id)
+      .order(:start_date)
+
     render :show
   end
 
@@ -31,6 +35,7 @@ class CatsController < ApplicationController
 
   def update
     @cat = Cat.find_by(id: params[:id])
+    
     if @cat.update(cat_params)
       redirect_to cat_url(@cat)
     else
